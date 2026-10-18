@@ -1,36 +1,77 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const exploreBtn = document.getElementById("explore-btn");
-    const prankSection = document.getElementById("prank-videos");
+/**
+ * UNIVERSE HUOKAING THARA - Interactive Scripts
+ * Script for video overlay playback, UI navigation, and user interactions.
+ */
 
-    // Scroll trigger for Hero CTA Button
-    if (exploreBtn && prankSection) {
-        exploreBtn.addEventListener("click", () => {
-            prankSection.scrollIntoView({ behavior: "smooth" });
-        });
-    }
-
-    console.log("UNIVERSE HUOKAING THARA Prank Video Platform initialized successfully.");
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize UI interactions
+    initSmoothScrolling();
+    initExploreButton();
 });
 
 /**
- * Global function to handle click-to-run auto-play on multiple video wrappers
- * @param {HTMLElement} overlayEl - The video overlay element clicked by the user
+ * Handles playing the video by removing the click overlay.
+ * Triggered inline via onclick="playVideo(this)" in the HTML.
+ * 
+ * @param {HTMLElement} overlayElement - The video overlay clicked by the user
  */
-function playVideo(overlayEl) {
-    if (!overlayEl) return;
+function playVideo(overlayElement) {
+    if (!overlayElement) return;
 
-    // Fade out overlay
-    overlayEl.classList.add("hidden");
+    // Find the parent wrapper and iframe element
+    const wrapper = overlayElement.closest('.video-wrapper');
+    const iframe = wrapper ? wrapper.querySelector('iframe') : null;
 
-    // Find sibling iframe inside the same wrapper container
-    const wrapper = overlayEl.closest(".video-wrapper");
-    if (wrapper) {
-        const iframe = wrapper.querySelector("iframe");
-        if (iframe) {
-            let currentSrc = iframe.src;
-            if (!currentSrc.includes("autoplay=1")) {
-                iframe.src = currentSrc + "&autoplay=1";
-            }
+    // Fade out and hide overlay
+    overlayElement.style.transition = 'opacity 0.4s ease, visibility 0.4s ease';
+    overlayElement.style.opacity = '0';
+    overlayElement.style.visibility = 'hidden';
+
+    // Append autoplay parameter if missing to trigger playback inside iframe
+    if (iframe) {
+        let currentSrc = iframe.getAttribute('src');
+        if (currentSrc && !currentSrc.includes('autoplay=1')) {
+            const separator = currentSrc.includes('?') ? '&' : '?';
+            iframe.setAttribute('src', `${currentSrc}${separator}autoplay=1`);
         }
+    }
+}
+
+/**
+ * Sets up smooth scrolling for header navigation links.
+ */
+function initSmoothScrolling() {
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+/**
+ * Handles the Explore CTA button to scroll directly to the video section.
+ */
+function initExploreButton() {
+    const exploreBtn = document.getElementById('explore-btn');
+    const hotMoviesSection = document.getElementById('hot-movies');
+
+    if (exploreBtn && hotMoviesSection) {
+        exploreBtn.addEventListener('click', () => {
+            hotMoviesSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
     }
 }
