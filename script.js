@@ -22,17 +22,26 @@ function playVideo(overlayElement) {
     const wrapper = overlayElement.closest('.video-wrapper');
     const iframe = wrapper ? wrapper.querySelector('iframe') : null;
 
-    // Fade out and hide overlay
+    // Fade out, disable pointer events, and completely hide overlay after transition
     overlayElement.style.transition = 'opacity 0.4s ease, visibility 0.4s ease';
     overlayElement.style.opacity = '0';
     overlayElement.style.visibility = 'hidden';
+    overlayElement.style.pointerEvents = 'none';
 
-    // Append autoplay parameter if missing to trigger playback inside iframe
+    setTimeout(() => {
+        overlayElement.style.display = 'none';
+    }, 400);
+
+    // Append autoplay parameter or refresh src to trigger playback inside iframe
     if (iframe) {
         let currentSrc = iframe.getAttribute('src');
-        if (currentSrc && !currentSrc.includes('autoplay=1')) {
-            const separator = currentSrc.includes('?') ? '&' : '?';
-            iframe.setAttribute('src', `${currentSrc}${separator}autoplay=1`);
+        if (currentSrc) {
+            if (!currentSrc.includes('autoplay=1')) {
+                const separator = currentSrc.includes('?') ? '&' : '?';
+                iframe.setAttribute('src', `${currentSrc}${separator}autoplay=1`);
+            } else {
+                iframe.setAttribute('src', currentSrc);
+            }
         }
     }
 }
