@@ -200,21 +200,28 @@ body {
     font-style: italic;
 }
 
-/* Video Wrapper & Overlay */
+/* Video Wrapper, Thumbnail & Overlay */
 .video-wrapper {
     position: relative;
     width: 100%;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
     background-color: #000000;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.video-wrapper iframe {
+.video-thumbnail-fallback {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover .video-thumbnail-fallback {
+    transform: scale(1.03);
 }
 
 .video-overlay {
@@ -223,21 +230,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.55);
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     z-index: 10;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: background 0.3s ease;
 }
 
-/* Add this rule to allow iframe clicks after overlay is hidden */
-.video-overlay.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    display: none;
+.video-wrapper:hover .video-overlay {
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .play-trigger-box {
@@ -272,9 +274,10 @@ body {
 .play-trigger-box span {
     font-size: 0.85rem;
     font-weight: 500;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Video Stats Bar */
