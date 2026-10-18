@@ -1,83 +1,52 @@
-# brother_sister
-# 🎬 UNIVERSE HUOKAING THARA - Brother & Sister Hot Movies Platform
+# 🎬 UNIVERSE HUOKAING THARA - Hot Movies Platform
 
-> An interactive, high-traffic bilingual (Khmer & English) drama and video showcase web application featuring Facebook-style feed interactions, custom click-to-autoplay overlays, and high-performance media embedding.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 
-## 📖 Table of Contents / មាតិកា
-- [About the Platform / អំពីវេទិកា](#-about-the-platform)
-- [Key Features / លក្ខណៈពិសេសចម្បង](#-key-features)
-- [Featured Episodes / បណ្តុំភាគភាពយន្ត](#-featured-episodes)
-- [Tech Stack & Architecture / បច្ចេកវិទ្យាប្រើប្រាស់](#-tech-stack--architecture)
-- [Project Structure / រចនាសម្ព័ន្ធកូដ](#-project-structure)
-- [Getting Started / ការចាប់ផ្តើម](#-getting-started)
-- [Community Guidelines / គោលការណ៍សហគមន៍](#-community-guidelines)
-- [License / ការរក្សាសិទ្ធិ](#-license)
+A responsive, Facebook-feed-style media web application designed to showcase drama and video content with interactive auto-play overlays, bilingual support (Khmer and English), and dark-mode web aesthetics.
 
-## 🎯 About the Platform / អំពីវេទិកា
+## 🌟 Key Features
 
-**UNIVERSE HUOKAING THARA Brother & Sister Hot Movies Platform** is a modern media showcase interface designed to present serialized drama episodes and family relationship stories. Engineered with a dark neon aesthetic, the platform integrates social feed presentation styles with custom click-to-autoplay video wrapper controls.
+- 📱 **Facebook Feed Style Design**: Structured post cards featuring verified badge badges, metadata, view counts, and interaction bars.
+- 🎬 **Custom Video Overlay & Auto-Play**: Interactive click-to-play video overlays with pulsing animations for embedded video streams.
+- 🌐 **Bilingual Content**: Fully formatted in Khmer (ខ្មែរ) and English for multilingual audience support.
+- ⚡ **Responsive & Smooth UX**: Built with fluid CSS layout rules for desktops, tablets, and mobile devices.
+- 🎨 **Modern Dark UI**: Clean dark theme built with modern CSS custom properties and custom Google Fonts (`Kantumruy Pro` and `Poppins`).
 
-## ✨ Key Features / លក្ខណៈពិសេសចម្បង
+## 📁 Repository Structure
 
-* **📱 Facebook-Style Feed Cards:** Styled cards featuring verified badges, view counters (11M to 16M views), publication metadata, and interactive stats bars.
-* **▶️ Click-to-Autoplay Integration:** Custom interactive video wrappers with pulsing play triggers that auto-start iframe playback upon user interaction.
-* **🌐 Dual Language Support:** Complete bilingual UI presentation in **Khmer (ខ្មែរ)** and **English**.
-* **⚡ High-Performance Responsive UI:** Lightweight, modular HTML5/CSS3 architecture optimized across mobile, tablet, and desktop viewports.
-* **🛡️ Integrated Security Extensions:** Connected client-side interaction controllers (`ultra_secure_mode.js`) for operational stability.
+```text
+├── index.html              # Main HTML markup structure
+├── style.css               # Complete platform styling & dark mode design
+├── script.js              # UI interaction scripts & video autoplay handler
+├── ultra_secure_mode.js    # Security & protection scripts
+├── universe_huokaingthara.jpg # Channel logo / branding avatar
+└── README.md               # Project documentation
 
-## 📽️ Featured Episodes / បណ្តុំភាគភាពយន្ត
+## 🚀 Quick Start & Usage
 
-| Episode | Title & Theme | View Count |
-| :--- | :--- | :--- |
-| **Episode #1** | Drama & Romance / រឿងរ៉ាវស្នេហា និងទំនាក់ទំនងគ្រួសារ | 👁️ 11,000,000 Views |
-| **Episode #2** | Emotional Conflict / ការប៉ះទង្គិចផ្លូវចិត្ត និងភាពស្និទ្ធស្នាល | 👁️ 12,000,000 Views |
-| **Episode #3** | Secrets & Passion / ការលាតត្រដាងសម្ងាត់ | 👁️ 13,000,000 Views |
-| **Episode #4** | Urban Romance / ជីវិតរស់នៅក្នុងទីក្រុងទំនើប | 👁️ 14,000,000 Views |
-| **Episode #5** | Climax Finale / ឈុតឆាកជក់ចិត្ត និងការដោះស្រាយវិបត្តិ | 👁️ 15,000,000 Views |
-| **Episode #6** | Special Edition / ភាគពិសេសបង្ហាញពីការជួបជុំឡើងវិញ | 👁️ 16,000,000 Views |
+1. **Clone the Repository**
 
-## 🛠️ Tech Stack & Architecture / បច្ចេកវិទ្យាប្រើប្រាស់
+git clone [https://github.com/your-username/universe-huokaing-thara.git](https://github.com/your-username/universe-huokaing-thara.git)
+cd universe-huokaing-thara
 
-- **Frontend:** HTML5, CSS3 (Flexbox/Grid), JavaScript (ES6+)
-- **Typography:** Google Fonts (`Kantumruy Pro`, `Poppins`)
-- **Icons:** FontAwesome v6.4.0
-- **Media Delivery:** Embedded YouTube Player API with custom JS triggers
+2. **Run Locally**
+* Open `index.html` directly in any web browser.
+* Alternatively, serve it using VS Code **Live Server** extension or a simple local HTTP server:
 
-## 📂 Project Structure / រចនាសម្ព័ន្ធកូដ
+npx serve .
 
-├── index.html               # Main video feed layout and episode cards
-├── style.css                # Dark mode styles, pulse animations, and grid rules
-├── script.js                # Smooth scroll handlers and click-to-autoplay logic
-├── ultra_secure_mode.js     # System interaction protection script
-└── universe_huokaingthara.jpg # Avatar & brand identity asset
+## 🛠️ Built With
 
-## 🚀 Getting Started / ការចាប់ផ្តើម
+* **HTML5**: Semantic document layout.
+* **CSS3**: Flexbox layout, media queries, CSS keyframe animations, and 16:9 video container ratios.
+* **JavaScript (ES6+)**: DOM manipulation, smooth scroll handling, and iframe interaction logic.
+* **FontAwesome 6.4.0**: UI icons and badge iconography.
 
-To run this repository locally on your machine:
+## 📄 License
 
-1. **Clone the repository:**
+Distributed under the MIT License. See `LICENSE` for more information.
 
-git clone [https://github.com/your-username/universe-huokaing-thara-movies.git](https://github.com/your-username/universe-huokaing-thara-movies.git)
-
-2. **Navigate to the project directory:**
-
-cd universe-huokaing-thara-movies
-
-
-3. **Open `index.html**` in any modern web browser or serve via VS Code Live Server.
-
-## 🛡️ Community Guidelines / គោលការណ៍ណែនាំសហគមន៍
-
-We expect all contributors and visitors to adhere to our standards:
-
-* **Compliance:** Strictly comply with the regulations and laws of the Kingdom of Cambodia.
-* **Respectful Interaction:** Maintain a professional and harassment-free community environment.
-* **Platform Scope:** Dedicated purely to creative storytelling, digital media, and web technology.
-
-## 📄 License / ការរក្សាសិទ្ធិ
-
-© 2026 **UNIVERSE HUOKAING THARA Group**. All Rights Reserved. / រក្សាសិទ្ធិគ្រប់យ៉ាង។
-
-```
-
-```
+© 2026 **UNIVERSE HUOKAING THARA Group**. All Rights Reserved.
