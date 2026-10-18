@@ -229,7 +229,15 @@ body {
     align-items: center;
     cursor: pointer;
     z-index: 10;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Add this rule to allow iframe clicks after overlay is hidden */
+.video-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
 }
 
 .play-trigger-box {
