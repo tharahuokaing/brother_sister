@@ -1,6 +1,6 @@
 /**
  * UNIVERSE HUOKAING THARA - Interactive Scripts
- * Script for video overlay playback, UI navigation, and user interactions.
+ * Script for external video redirection, UI navigation, and user interactions.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,39 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Handles playing the video by removing the click overlay.
- * Triggered inline via onclick="playVideo(this)" in the HTML.
+ * Opens the target video website URL in a new browser tab.
+ * Triggered inline via onclick="redirectToVideo(url)" in the HTML.
  * 
- * @param {HTMLElement} overlayElement - The video overlay clicked by the user
+ * @param {string} url - The external video link destination
  */
-function playVideo(overlayElement) {
-    if (!overlayElement) return;
-
-    // Find the parent wrapper and iframe element
-    const wrapper = overlayElement.closest('.video-wrapper');
-    const iframe = wrapper ? wrapper.querySelector('iframe') : null;
-
-    // Fade out, disable pointer events, and completely hide overlay after transition
-    overlayElement.style.transition = 'opacity 0.4s ease, visibility 0.4s ease';
-    overlayElement.style.opacity = '0';
-    overlayElement.style.visibility = 'hidden';
-    overlayElement.style.pointerEvents = 'none';
-
-    setTimeout(() => {
-        overlayElement.style.display = 'none';
-    }, 400);
-
-    // Append autoplay parameter or refresh src to trigger playback inside iframe
-    if (iframe) {
-        let currentSrc = iframe.getAttribute('src');
-        if (currentSrc) {
-            if (!currentSrc.includes('autoplay=1')) {
-                const separator = currentSrc.includes('?') ? '&' : '?';
-                iframe.setAttribute('src', `${currentSrc}${separator}autoplay=1`);
-            } else {
-                iframe.setAttribute('src', currentSrc);
-            }
-        }
+function redirectToVideo(url) {
+    if (url) {
+        window.open(url, '_blank');
     }
 }
 
